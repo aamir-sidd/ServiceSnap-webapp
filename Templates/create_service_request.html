@@ -1,0 +1,32 @@
+{% extends 'customer_base.html' %}
+{% block content %}
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="container col-md-4 mt-5 bg-light p-4 shadow">
+        <h3 class="text-center mb-3">Create Service Request</h3>
+        <form action="{{ url_for('create_service_request', id=service.id) }}" method="POST">
+
+            <input type="text" name="service" id="" value="{{service.name}}" disabled readonly class="form-control mb-3">
+            
+            <div class="mb-3">
+                <label for="service_professional_id" class="form-label">Select a Service Professional:</label>
+                <select name="service_professional_id" class="form-select">
+                    <option value="">None</option>
+                    {% for professional in professionals %}
+                    <option value="{{ professional.id }}">{{ professional.name }}-{{ professional.service_type }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="completion_date" class="form-label">Select Completion Date:</label>
+                <input type="date" name="completion_date" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Submit Request</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

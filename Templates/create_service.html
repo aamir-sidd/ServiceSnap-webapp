@@ -1,0 +1,27 @@
+<!-- templates/admin_dashboard.html -->
+{% extends 'admin_base.html' %}
+{% block content %}
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="col-md-4 mt-5 bg-light p-4">
+        <form action="{{ url_for('create_service') }}" method="POST" >
+            <h3>Create New Service</h3>
+            <div class="mb-3">
+                <label>Name:</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label>Description:</label>
+                <input type="text" name="description" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label>Price:</label>
+                <input type="number" name="price" step="0.01" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success">Create</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'customer_base.html' %}
+{% block content %}
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="container col-md-4 mt-5 bg-light p-4 shadow">
+        <h3 class="text-center mb-3">Submit Feedback</h3>
+        <form action="{{ url_for('submit_feedback', id = professional.id) }}" method="POST">
+
+            <div class="mb-3">
+                <label for="feedback_text">Your Feedback:</label>
+                <textarea name="feedback_text" required class="form-control mb-3" rows="4"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
